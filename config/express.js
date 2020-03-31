@@ -5,8 +5,6 @@ const morgan = require('morgan');
 const compress = require('compression');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const session = require('express-session');
-const flash = require('connect-flash');
 
 module.exports = function () {
     const app = express();
@@ -25,19 +23,9 @@ module.exports = function () {
     app.use(bodyParser.json());
     app.use(methodOverride());
 
-    // Configure the 'session' middleware
-    app.use(session({
-        saveUninitialized: true,
-        resave: true,
-        secret: config.sessionSecret
-    }));
-
     // Set the application view engine and 'views' folder
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
-
-    // Configure the flash messages middleware
-    app.use(flash());
 
     // routers
     require('../app/routes/index.server.routes.js')(app);

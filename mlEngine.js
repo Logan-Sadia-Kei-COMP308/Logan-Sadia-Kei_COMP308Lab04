@@ -139,7 +139,7 @@ function doPrediction() {
     const startTime = Date.now()
     model.fit(trainingData, outputData, { epochs: 100 })
         .then((history) => {
-            //console.log(history)
+            console.log(history)
             //display prediction results for the inpud samples
             console.log("----- Prediction for testing data -----");
             model.predict(testingData).print()
