@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <% if(typeof(studentFullName) === "undefined") { %>
+        <h1><%= title %></h1>
+
+        <p><a href="/signin">Sign In as student</a></p>
+        <p><a href="/signup">Sign Up as student</a></p>
+
+        <% } else {%>
+
+        <h3>Welcome, <%= studentFullName %>(<%= email %>)</h3>
+        <p><a href="/submit_comment">Send Feedback</a></p>
+        <p><a href="/display_comments?email=<%= email %>">View Your Comments</a></p>
+        <p><a href="/student_list">Display all Students</a></p>
+        <p></p>
+        <p><a href="/signout">log out</a></p>
+
+        <% }%>
+
+    </div>
+    <br>
+</body>
+
+</html>
