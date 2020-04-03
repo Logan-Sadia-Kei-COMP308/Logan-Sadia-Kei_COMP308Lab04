@@ -1,58 +1,102 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title><%= title %></title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+  </head>
 
-<body>
-    <div class='container'>
+  <body class="container">
+    <div class="row justify-content-center">
+      <div class="col-6 justify-content-center div-style">
         <header>
-            <h2>Please give us your feedback</h2>
+          <h3>Please provide the following information</h2>
         </header>
 
         <form action="/submit_iris" method="post">
-            <h3></h3>
-            <div>
-                <label for="epochNum">Number of Epoch: </label><input type="number" size="30" name="epochNum" min="1">
-            </div>
-            <div>
-                <label for="learningRate">Learning rate</label><input type="text" size="30" name="learningRate">
-            </div>
+          <div class="form-group">
+            <label for="epochNum">Number of Epoch: </label
+            ><input
+              type="number"
+              size="30"
+              name="epochNum"
+              min="1"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="learningRate">Learning rate</label
+            ><input
+              type="text"
+              size="30"
+              name="learningRate"
+              class="form-control"
+            />
+          </div>
 
-            <h3>Enter Iris Data</h3>
-            <div>
-                <label for="sepalLength">Sepal Length: </label><input type="text" size="30" name="sepalLength">
-            </div>
-            <div>
-                <label for="sepalWidth">Sepal Width: </label><input type="text" size="30" name="sepalWidth">
-            </div>
-            <div>
-                <label for="petalLength">Petal Length: </label><input type="text" size="30" name="petalLength">
-            </div>
-            <div>
-                <label for="petalWidth">Petal Width: </label><input type="text" size="30" name="petalWidth">
-            </div>
-            <div>
-                <label for="species">Species</label>
-                <select name="species">
-                    <option value="setosa" selected>Setosa</option>
-                    <option value="virginica">Virginica</option>
-                    <option value="versicolor">Versicolor</option>
-                </select>
-            </div>
+          <h4 >Enter Iris Data</h4>
+          <div class="form-group">
+            <label for="sepalLength">Sepal Length: </label
+            ><input
+              type="text"
+              size="30"
+              name="sepalLength"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sepalWidth">Sepal Width: </label
+            ><input
+              type="text"
+              size="30"
+              name="sepalWidth"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="petalLength">Petal Length: </label
+            ><input
+              type="text"
+              size="30"
+              name="petalLength"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="petalWidth">Petal Width: </label
+            ><input
+              type="text"
+              size="30"
+              name="petalWidth"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="species">My Guess of a Flower Species</label>
+            <select name="species" class="custom-select">
+              <option value="setosa" selected>Setosa</option>
+              <option value="virginica">Virginica</option>
+              <option value="versicolor">Versicolor</option>
+            </select>
+          </div>
 
-            <div>
-                <label></label><input type="submit" value="Predict" id="Predict">
-            </div>
-
+          <div>
+            <label></label
+            ><input
+              type="submit"
+              value="Check what Siri thinks!"
+              id="Predict"
+              class="col-12 btn btn-outline-primary margin-btn"
+            />
+          </div>
         </form>
-
+      </div>
     </div>
 
-
-    <br>
-</body>
-
+    <br />
+  </body>
 </html>

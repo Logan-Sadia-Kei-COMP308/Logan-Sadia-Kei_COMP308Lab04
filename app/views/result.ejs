@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-</head>
+  </head>
 
-<body>
+  <body>
     <%= title %>
-</body>
 
+    <table>
+      <tr>
+        <td><%= resultForTest1[0] %></td>
+        <br />
+      </tr>
+      <tr>
+        <td><%= resultForTest1[1] %></td>
+        <br />
+      </tr>
+      <tr>
+        <td><%= resultForTest1[2] %></td>
+        <br />
+      </tr>
+      <tr>
+        <td><%= epoch %></td>
+        <br />
+      </tr>
+      <tr>
+        <td><%=learningRate %></td>
+        <br />
+      </tr>
+      <tr>
+        <td><%= siriAnswer %></td>
+        <br />
+      </tr>
+    </table>
+  </body>
 </html>
