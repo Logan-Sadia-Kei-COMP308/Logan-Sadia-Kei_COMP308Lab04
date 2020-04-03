@@ -26,6 +26,7 @@
               name="epochNum"
               min="1"
               class="form-control"
+              required
             />
           </div>
           <div class="form-group">
@@ -35,6 +36,7 @@
               size="30"
               name="learningRate"
               class="form-control"
+              required
             />
           </div>
 
@@ -46,6 +48,7 @@
               size="30"
               name="sepalLength"
               class="form-control"
+               required
             />
           </div>
           <div class="form-group">
@@ -55,6 +58,7 @@
               size="30"
               name="sepalWidth"
               class="form-control"
+               required
             />
           </div>
           <div class="form-group">
@@ -64,6 +68,7 @@
               size="30"
               name="petalLength"
               class="form-control"
+               required
             />
           </div>
           <div class="form-group">
@@ -73,14 +78,16 @@
               size="30"
               name="petalWidth"
               class="form-control"
+               required
             />
           </div>
           <div class="form-group">
             <label for="species">My Guess of a Flower Species</label>
-            <select name="species" class="custom-select">
+            <select name="species" class="custom-select"  required>
               <option value="setosa" selected>Setosa</option>
               <option value="virginica">Virginica</option>
               <option value="versicolor">Versicolor</option>
+  
             </select>
           </div>
 

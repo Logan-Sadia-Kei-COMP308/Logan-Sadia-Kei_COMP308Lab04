@@ -7,3 +7,12 @@
 .margin-btn {
     margin-bottom: 10px;
 }
+
+.p-style {
+    color: red;
+    margin: 20px;
+}
+
+.btn-margin {
+    margin: 20px;
+}
