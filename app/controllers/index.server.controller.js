@@ -1,6 +1,6 @@
 exports.render = (req, res) => {
   res.render("index", {
-    title: "TensorFlow Tester"
+    title: "TensorFlow Tester",
   });
 };
 
@@ -12,8 +12,8 @@ exports.submitIris = (req, res, next) => {
       sepal_width: parseFloat(req.body.sepalWidth),
       petal_length: parseFloat(req.body.petalLength),
       petal_width: parseFloat(req.body.petalWidth),
-      species: req.body.species
-    }
+      species: req.body.species,
+    },
   ];
   console.log("=============testing data============ ");
 
@@ -66,7 +66,7 @@ exports.submitIris = (req, res, next) => {
       epoch: epochNum,
       learningRate: learningRate,
       resultForTest1: resultForData[0],
-      siriAnswer: siriAnswer
+      siriAnswer: siriAnswer,
     });
   }
   run();
@@ -98,12 +98,12 @@ async function testRun(epochNum, learningRate, irisData) {
      */
     console.log("----- tensor of features for training data -----");
     trainingData = tensorFlowEngine.tensor2d(
-      iris.map(item => {
+      iris.map((item) => {
         let mappedItem = [
           item.sepal_length,
           item.sepal_width,
           item.petal_length,
-          item.petal_width
+          item.petal_width,
         ];
 
         // for mapping result check
@@ -125,11 +125,11 @@ async function testRun(epochNum, learningRate, irisData) {
      */
     console.log("----- tensor of output for training data -----");
     outputData = tensorFlowEngine.tensor2d(
-      iris.map(item => {
+      iris.map((item) => {
         let mappedItem = [
           item.species === "setosa" ? 1 : 0,
           item.species === "virginica" ? 1 : 0,
-          item.species === "versicolor" ? 1 : 0
+          item.species === "versicolor" ? 1 : 0,
         ];
 
         // console.log(item);
@@ -142,12 +142,12 @@ async function testRun(epochNum, learningRate, irisData) {
     console.log("----- tensor of features for testing data -----");
     console.log(irisData);
     testingData = tensorFlowEngine.tensor2d(
-      irisData.map(item => {
+      irisData.map((item) => {
         let mappedItem = [
           item.sepal_length,
           item.sepal_width,
           item.petal_length,
-          item.petal_width
+          item.petal_width,
         ];
 
         // for mapping result check
@@ -168,7 +168,7 @@ async function testRun(epochNum, learningRate, irisData) {
       tensorFlowEngine.layers.dense({
         inputShape: [4], // four input neurons
         activation: "sigmoid",
-        units: 5 //dimension of output space (first hidden layer)
+        units: 5, //dimension of output space (first hidden layer)
       })
     );
 
@@ -177,7 +177,7 @@ async function testRun(epochNum, learningRate, irisData) {
       tensorFlowEngine.layers.dense({
         inputShape: [5], //dimension of hidden layer
         activation: "sigmoid",
-        units: 3 //dimension of final output
+        units: 3, //dimension of final output
       })
     );
 
@@ -185,14 +185,14 @@ async function testRun(epochNum, learningRate, irisData) {
     model.add(
       tensorFlowEngine.layers.dense({
         activation: "sigmoid",
-        units: 3 //dimension of final output
+        units: 3, //dimension of final output
       })
     );
 
     //compile the model with an MSE loss function and Adam algorithm
     model.compile({
       loss: "meanSquaredError",
-      optimizer: tensorFlowEngine.train.adam(learningRate)
+      optimizer: tensorFlowEngine.train.adam(learningRate),
     });
   };
 
@@ -214,8 +214,8 @@ async function testRun(epochNum, learningRate, irisData) {
           console.log(`Epoch ${epoch}: Loss = ${log.loss}`);
           elapsedTime = Date.now() - startTime;
           console.log("Elapsed Time " + elapsedTime);
-        }
-      }
+        },
+      },
     });
 
     // test network
