@@ -5,6 +5,10 @@ const morgan = require('morgan');
 const compress = require('compression');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 
 // define Express configuration method
 module.exports = function () {
@@ -24,6 +28,22 @@ module.exports = function () {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
+
+    // Configure the 'session' middleware
+    app.use(session({
+        saveUninitialized: true,
+        resave: true,
+        secret: config.sessionSecret
+    }));
+
+    app.use(cookieParser('secret'));
+
+    app.use(session({ cookie: { maxAge: 60000 } }));
+
+
+    app.use(flash());
+
+
 
     // set the application view engine and 'views' folder
     app.set('views', './app/views');

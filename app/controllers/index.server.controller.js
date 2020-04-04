@@ -3,31 +3,44 @@ const runTensorFlow = require('../../TensorFlow')
 
 // render controller
 exports.render = (req, res) => {
+  // 
+  if (typeof (req.session.form) === "undefined") {
+    req.session.form = {
+      epochNum: "",
+      learningRate: "",
+      sepalLength: "",
+      sepalWidth: "",
+      petalLength: "",
+      petalWidth: "",
+      species: "",
+    };
+  }
+
+  // render index page
   res.render("index", {
     title: "Guess Iris Species with Siri",
+    expressFlash: req.flash('error'),
+    form: req.session.form
   });
 };
 
 // submitIris controller
 exports.submitIris = (req, res, next) => {
+  const { epochNum, learningRate, sepalLength, sepalWidth, petalLength, petalWidth, species } = req.body;
+
   // get testing data from the form
   let testingData = [
     {
-      sepal_length: parseFloat(req.body.sepalLength),
-      sepal_width: parseFloat(req.body.sepalWidth),
-      petal_length: parseFloat(req.body.petalLength),
-      petal_width: parseFloat(req.body.petalWidth),
-      species: req.body.species,
+      sepal_length: parseFloat(sepalLength),
+      sepal_width: parseFloat(sepalWidth),
+      petal_length: parseFloat(petalLength),
+      petal_width: parseFloat(petalWidth),
+      species: species,
     },
   ];
 
   console.log("=============testing data============ ");
   console.log(testingData);
-
-  // get test configuration
-  let epochNum = req.body.epochNum;
-  let learningRate = req.body.learningRate;
-
   console.log("Number of Epoch:" + epochNum);
   console.log("Learning Rate:" + learningRate);
 
@@ -65,6 +78,9 @@ exports.submitIris = (req, res, next) => {
 
     // check the testing result with user's guess
     let siriAnswer = checkGuess(testResult, testingData[0].species);
+
+    // clear session
+    req.session.destroy();
 
     // render result page
     res.render("result", {

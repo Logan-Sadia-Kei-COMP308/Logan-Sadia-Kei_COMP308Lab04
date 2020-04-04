@@ -15,41 +15,65 @@
                 <h2 class="display-4"><%= title %></h2>
             </header>
             <br />
-            <form action="/submit_iris" method="post">
+
+            <form action=" /submit_iris" method="post">
                 <h4>Siri Setting</h4>
                 <div class="form-group">
                     <label for="epochNum">Number of Epoch: </label><input type="number" size="30" name="epochNum"
-                        min="1" class="form-control" required />
+                        min="1" class="form-control" value="<%= form.epochNum %>" required />
                 </div>
                 <div class="form-group">
-                    <label for="learningRate">Learning Rate</label><input type="text" size="30" name="learningRate"
-                        class="form-control" required />
+                    <label for="learningRate">Learning Rate</label>
+                    <input type="text" size="30" name="learningRate" class="form-control"
+                        value="<%= form.learningRate %>" required />
+                    <% if(expressFlash.find(err=>err.param === "learningRate")) { %>
+                    <span
+                        class="error text-danger"><%= expressFlash.find(err=>err.param === "learningRate").msg %></span>
+                    <% } %>
                 </div>
 
                 <br />
                 <h4>Iris Data</h4>
                 <div class="form-group">
                     <label for="sepalLength">Sepal Length: </label><input type="text" size="30" name="sepalLength"
-                        class="form-control" required />
+                        class="form-control" value="<%= form.sepalLength %>" required />
+                    <% if(expressFlash.find(err=>err.param === "sepalLength")) { %>
+                    <span
+                        class="error text-danger"><%= expressFlash.find(err=>err.param === "sepalLength").msg %></span>
+                    <% }%>
+
                 </div>
                 <div class="form-group">
                     <label for="sepalWidth">Sepal Width: </label><input type="text" size="30" name="sepalWidth"
-                        class="form-control" required />
+                        class="form-control" value="<%= form.sepalWidth %>" required />
+                    <% if(expressFlash.find(err=>err.param === "sepalWidth")) { %>
+                    <span class="error text-danger"><%= expressFlash.find(err=>err.param === "sepalWidth").msg %></span>
+                    <% }%>
                 </div>
                 <div class="form-group">
                     <label for="petalLength">Petal Length: </label><input type="text" size="30" name="petalLength"
-                        class="form-control" required />
+                        class="form-control" value="<%= form.petalLength %>" required />
+                    <% if(expressFlash.find(err=>err.param === "petalLength")) { %>
+                    <span
+                        class="error text-danger"><%= expressFlash.find(err=>err.param === "petalLength").msg %></span>
+                    <% }%>
                 </div>
                 <div class="form-group">
                     <label for="petalWidth">Petal Width: </label><input type="text" size="30" name="petalWidth"
-                        class="form-control" required />
+                        class="form-control" value="<%= form.petalWidth %>" required />
+                    <% if(expressFlash.find(err=>err.param === "petalWidth")) { %>
+                    <span class="error text-danger"><%= expressFlash.find(err=>err.param === "petalWidth").msg %></span>
+                    <% }%>
+
                 </div>
-                <div class="form-group">
+                <div class=" form-group">
                     <label for="species">My Guess of a Flower Species</label>
                     <select name="species" class="custom-select" required>
-                        <option value="setosa" selected>Setosa</option>
-                        <option value="virginica">Virginica</option>
-                        <option value="versicolor">Versicolor</option>
+                        <option value="setosa" <% if (form.species == "setosa") { %>selected<% } %>>Setosa</option>
+                        <option value="virginica" <% if (form.species == "virginica") { %>selected<% } %>>Virginica
+                        </option>
+                        <option value="versicolor" <% if (form.species == "versicolor") { %>selected<% } %>>Versicolor
+                        </option>
 
                     </select>
                 </div>

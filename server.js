@@ -1,3 +1,24 @@
+/** 
+ * COMP308Lab04:
+ * Date: Apr 5, 2020
+ * Author: Sadia Rashid, Logan Junhwi Kim, Kei Mizubuchi
+ * 
+ * Sadia Rashid
+ * - Made index view with CSS and bootstrap
+ * - Added TensorFlow to Express
+ * - Made Tensorflow work by pair programming
+ * 
+ * Logan Junhwi Kim
+ * - Made result view
+ * - Overall designs improvement with JQuery
+ * - Made Tensorflow work by pair programming
+ * 
+ * Kei Mizubuchi:
+ * - Implemented Validation
+ * - Added comment and refactored the code
+ * - Made Tensorflow work by pair programming
+ * 
+*/
 // set the NODE_ENV variable
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
