@@ -9,7 +9,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
-
 // define Express configuration method
 module.exports = function () {
     // create an Express application instance
@@ -38,12 +37,13 @@ module.exports = function () {
 
     app.use(cookieParser('secret'));
 
-    app.use(session({ cookie: { maxAge: 60000 } }));
-
+    app.use(session({
+        cookie: {
+            maxAge: 60000
+        }
+    }));
 
     app.use(flash());
-
-
 
     // set the application view engine and 'views' folder
     app.set('views', './app/views');

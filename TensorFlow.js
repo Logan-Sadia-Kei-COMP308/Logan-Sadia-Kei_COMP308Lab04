@@ -12,7 +12,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
 
     // define data conversion method
     const mapJsonToTensor = () => {
-        //tensor of features for training data
+        // tensor of features for training data
         /**
          * The 4 features of iris flowers are mapped to an array here.
          */
@@ -25,7 +25,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
                     item.petal_length,
                     item.petal_width,
                 ];
-
+                
                 console.log("mapped Item Traning Data=>" + mappedItem);
 
                 return mappedItem;
@@ -38,7 +38,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
          * Items in iris.json are mapped to an array which represents the boolean combination of species
          * for training the model
          *
-         *  iris setosa: http://www.perennials.com/plants/iris-setosa-var-arctica.html
+         * iris setosa: http://www.perennials.com/plants/iris-setosa-var-arctica.html
          * iris virginia: https://www.fs.fed.us/wildflowers/beauty/iris/Blue_Flag/iris_virginica.shtml
          * iris versicolor: https://www.fs.fed.us/wildflowers/beauty/iris/Blue_Flag/iris_versicolor.shtml
          */
@@ -84,7 +84,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
         model = tensorFlowEngine.sequential();
 
         // adding three layers: the first layer, the hidden layer, and the output layer
-        //add the first layer
+        // add the first layer
         model.add(
             tensorFlowEngine.layers.dense({
                 inputShape: [4], // four input neurons
@@ -93,7 +93,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
             })
         );
 
-        //add the hidden layer
+        // add the hidden layer
         model.add(
             tensorFlowEngine.layers.dense({
                 inputShape: [5], //dimension of hidden layer
@@ -102,7 +102,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
             })
         );
 
-        //add output layer
+        // add output layer
         model.add(
             tensorFlowEngine.layers.dense({
                 activation: "sigmoid",
@@ -110,7 +110,7 @@ module.exports = async (epochNum, learningRate, irisData) => {
             })
         );
 
-        //compile the model with an MSE loss function and Adam algorithm
+        // compile the model with an MSE loss function and Adam algorithm
         model.compile({
             loss: "meanSquaredError",
             optimizer: tensorFlowEngine.train.adam(learningRate),

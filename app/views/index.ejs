@@ -20,11 +20,11 @@
                 <h4>Siri Setting</h4>
                 <div class="form-group">
                     <label for="epochNum">Number of Epoch: </label><input type="number" size="30" name="epochNum"
-                        min="1" class="form-control" value="<%= form.epochNum %>" required />
+                        min="1" class="form-control" placeholder="i.e. 100 (integer only)" value="<%= form.epochNum %>" required />
                 </div>
                 <div class="form-group">
                     <label for="learningRate">Learning Rate</label>
-                    <input type="text" size="30" name="learningRate" class="form-control"
+                    <input type="text" size="30" name="learningRate" class="form-control" placeholder="i.e. 0.05"
                         value="<%= form.learningRate %>" required />
                     <% if(expressFlash.find(err=>err.param === "learningRate")) { %>
                     <span
@@ -36,7 +36,7 @@
                 <h4>Iris Data</h4>
                 <div class="form-group">
                     <label for="sepalLength">Sepal Length: </label><input type="text" size="30" name="sepalLength"
-                        class="form-control" value="<%= form.sepalLength %>" required />
+                        class="form-control" value="<%= form.sepalLength %>" placeholder="i.e. 5.4" required />
                     <% if(expressFlash.find(err=>err.param === "sepalLength")) { %>
                     <span
                         class="error text-danger"><%= expressFlash.find(err=>err.param === "sepalLength").msg %></span>
@@ -45,14 +45,14 @@
                 </div>
                 <div class="form-group">
                     <label for="sepalWidth">Sepal Width: </label><input type="text" size="30" name="sepalWidth"
-                        class="form-control" value="<%= form.sepalWidth %>" required />
+                        class="form-control" value="<%= form.sepalWidth %>" placeholder="i.e. 3.9" required />
                     <% if(expressFlash.find(err=>err.param === "sepalWidth")) { %>
                     <span class="error text-danger"><%= expressFlash.find(err=>err.param === "sepalWidth").msg %></span>
                     <% }%>
                 </div>
                 <div class="form-group">
                     <label for="petalLength">Petal Length: </label><input type="text" size="30" name="petalLength"
-                        class="form-control" value="<%= form.petalLength %>" required />
+                        class="form-control" value="<%= form.petalLength %>" placeholder="i.e. 1.7" required />
                     <% if(expressFlash.find(err=>err.param === "petalLength")) { %>
                     <span
                         class="error text-danger"><%= expressFlash.find(err=>err.param === "petalLength").msg %></span>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="petalWidth">Petal Width: </label><input type="text" size="30" name="petalWidth"
-                        class="form-control" value="<%= form.petalWidth %>" required />
+                        class="form-control" value="<%= form.petalWidth %>" placeholder="i.e. 0.4" required />
                     <% if(expressFlash.find(err=>err.param === "petalWidth")) { %>
                     <span class="error text-danger"><%= expressFlash.find(err=>err.param === "petalWidth").msg %></span>
                     <% }%>

@@ -18,7 +18,8 @@
  * - Added comment and refactored the code
  * - Made Tensorflow work by pair programming
  * 
-*/
+ */
+
 // set the NODE_ENV variable
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 

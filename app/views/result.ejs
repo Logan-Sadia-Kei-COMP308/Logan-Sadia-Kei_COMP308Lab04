@@ -2,44 +2,44 @@
 <html lang="en" class="background">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-  <title><%= title %></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title><%= title %></title>
 </head>
 
 <body class="container body" onload="document.body.style.opacity='1'">
-  <div class="row justify-content-center">
-    <div class="col-9 justify-content-center div-style content">
-      <h3 class="display-4" style="text-align: center;"><%= title %></h3>
-      <br />
-      <p class=""><%= siriAnswer %></p>
-      <br />
-      <table class="table table-sripped">
-        <thead class="thead-dark">
-          <tr>
-            <th>No of Epoch</th>
-            <th>Learning Rate</th>
-            <th>Setosa</th>
-            <th>Verginica</th>
-            <th>Versicolor</th>
-          </tr>
-        </thead>
-        <tr>
-          <td><%= epoch %></td>
-          <td><%=learningRate %></td>
-          <td><%= testResult[0] %></td>
-          <td><%= testResult[1] %></td>
-          <td><%= testResult[2] %></td>
-        </tr>
-      </table>
-      <div class="col-12 text-center">
-        <a href="/" class="col-2 btn btn-outline-primary btn-margin">Guess Again!</a>
-      </div>
+    <div class="row justify-content-center">
+        <div class="col-9 justify-content-center div-style content">
+            <h3 class="display-4" style="text-align: center;"><%= title %></h3>
+            <br />
+            <p class=""><%= siriAnswer %></p>
+            <br />
+            <table class="table table-sripped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No of Epoch</th>
+                        <th>Learning Rate</th>
+                        <th>Setosa</th>
+                        <th>Verginica</th>
+                        <th>Versicolor</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><%= epoch %></td>
+                    <td><%=learningRate %></td>
+                    <td><%= testResult[0] %></td>
+                    <td><%= testResult[1] %></td>
+                    <td><%= testResult[2] %></td>
+                </tr>
+            </table>
+            <div class="col-12 text-center">
+                <a href="/" class="col-2 btn btn-outline-primary btn-margin">Guess Again!</a>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 <script src="../../public/js/myQuery.js"></script>
 
