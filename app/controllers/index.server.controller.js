@@ -1,6 +1,6 @@
 exports.render = (req, res) => {
   res.render("index", {
-    title: "TensorFlow Tester",
+    title: "Guess Iris Species with Siri",
   });
 };
 
@@ -24,7 +24,7 @@ exports.submitIris = (req, res, next) => {
   let learningRate = req.body.learningRate;
 
   console.log("Number of Epoch:" + epochNum);
-  console.log("Learning rate:" + learningRate);
+  console.log("Learning Rate:" + learningRate);
 
   function checkGuess(resultData, userGuess) {
     let val1 = resultData[0];
@@ -62,7 +62,7 @@ exports.submitIris = (req, res, next) => {
     let siriAnswer = checkGuess(resultForData[0], testingData[0].species);
     console.log("in testRun():" + resultForData[0]);
     res.render("result", {
-      title: "Guess with Siri",
+      title: "Hi, it's Siri",
       epoch: epochNum,
       learningRate: learningRate,
       resultForTest1: resultForData[0],
@@ -205,8 +205,6 @@ async function testRun(epochNum, learningRate, irisData) {
     // train/fit the model for the fixed number of epochs
     const startTime = Date.now();
 
-    console.log("----- Prediction for testing data -----");
-
     await model.fit(trainingData, outputData, {
       epochs: epochNum,
       callbacks: {
@@ -217,6 +215,8 @@ async function testRun(epochNum, learningRate, irisData) {
         },
       },
     });
+
+    console.log("----- Prediction for testing data -----");
 
     // test network
     let results = model.predict(testingData);
